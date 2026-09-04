@@ -1,0 +1,411 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    color: #222;
+}
+
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+
+    width: 250px;
+    height: 100vh;
+
+    background: #111;
+
+    color: white;
+
+    padding: 30px 20px;
+}
+
+
+.brand {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.brand h2 {
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+.brand span {
+    display: block;
+    margin-top: 8px;
+    color: #aaa;
+    font-size: 13px;
+}
+
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.sidebar nav a {
+    text-decoration: none;
+    color: #aaa;
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    transition: 0.3s;
+}
+
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: white;
+    color: #111;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.main {
+    margin-right: 250px;
+    padding: 30px;
+}
+
+
+/* =========================================
+   TOPBAR
+========================================= */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.topbar h1 {
+    font-size: 30px;
+}
+
+.topbar p {
+    color: #888;
+    margin-top: 8px;
+}
+
+
+.admin-user {
+    background: white;
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 35px;
+}
+
+
+.stat-card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    box-shadow:
+        0 5px 20px
+        rgba(0, 0, 0, 0.04);
+}
+
+
+.stat-card span {
+    color: #888;
+    font-size: 14px;
+}
+
+
+.stat-card h2 {
+    font-size: 28px;
+    margin-top: 8px;
+}
+
+
+.stat-card > i {
+    font-size: 30px;
+    color: #777;
+}
+
+
+/* =========================================
+   PRODUCTS
+========================================= */
+
+.products-section {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+}
+
+
+.section-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+}
+
+
+.section-header h2 {
+    font-size: 23px;
+}
+
+
+.section-header p {
+    color: #888;
+    margin-top: 6px;
+}
+
+
+.add-product {
+    background: #111;
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 12px 18px;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+/* =========================================
+   TABLE
+========================================= */
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 800px;
+}
+
+
+thead {
+    background: #f5f5f5;
+}
+
+
+th,
+td {
+    padding: 15px;
+
+    text-align: right;
+
+    border-bottom:
+        1px solid #eee;
+}
+
+
+th {
+    color: #666;
+    font-size: 14px;
+}
+
+
+.product-image {
+    width: 60px;
+    height: 60px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+}
+
+
+.no-image {
+    width: 60px;
+    height: 60px;
+
+    background: #eee;
+
+    border-radius: 8px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #999;
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+.status {
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+}
+
+
+.available {
+    background: #e8f7ee;
+    color: #16833a;
+}
+
+
+.unavailable {
+    background: #fdeaea;
+    color: #c62828;
+}
+
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.actions {
+    display: flex;
+
+    gap: 8px;
+}
+
+
+.actions a {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    text-decoration: none;
+}
+
+
+.edit {
+    background: #eee;
+    color: #222;
+}
+
+
+.delete {
+    background: #fdeaea;
+    color: #d33;
+}
+
+
+/* =========================================
+   EMPTY
+========================================= */
+
+.empty {
+    text-align: center;
+
+    padding: 50px;
+
+    color: #888;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .main {
+        margin-right: 200px;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .sidebar {
+        display: none;
+    }
+
+    .main {
+        margin-right: 0;
+        padding: 15px;
+    }
+
+}
