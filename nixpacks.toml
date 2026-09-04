@@ -1,2 +1,3 @@
 [phases.setup]
 nixPkgs = ["php", "phpPackages.composer", "phpExtensions.pdo_mysql", "phpExtensions.mysqli"]
+# force update
