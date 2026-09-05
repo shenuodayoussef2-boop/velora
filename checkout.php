@@ -822,7 +822,7 @@ if (
 >
 
 <style>
-/* نفس التنسيقات القديمة الخاصة بك */
+/* التنسيقات العامة */
 * {
     margin: 0;
     padding: 0;
@@ -833,6 +833,8 @@ body {
     font-family: Arial, sans-serif;
     background: #f7f7f7;
     color: #111;
+    direction: rtl;
+    text-align: right;
 }
 
 a {
@@ -840,17 +842,14 @@ a {
     color: inherit;
 }
 
-button,
-input,
-select,
-textarea {
+button, input, select, textarea {
     font-family: inherit;
 }
 
 .navbar {
     background: #fff;
     border-bottom: 1px solid #eee;
-    padding: 22px 5%;
+    padding: 15px 5%;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -862,93 +861,87 @@ textarea {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
 .logo {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
-
-.nav-links a {
-    font-size: 14px;
-    transition: .3s;
-}
-
-.nav-links a:hover {
-    color: #777;
-}
-
-.nav-actions {
-    display: flex;
-    gap: 20px;
-    font-size: 18px;
 }
 
 .checkout-header {
     background: #111;
     color: #fff;
     text-align: center;
-    padding: 70px 20px;
+    padding: 40px 15px;
 }
 
 .checkout-header p {
     color: #aaa;
-    letter-spacing: 3px;
-    font-size: 12px;
-    margin-bottom: 12px;
+    font-size: 11px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
 }
 
 .checkout-header h1 {
-    font-size: 42px;
+    font-size: 28px;
 }
 
 .checkout-section {
     max-width: 1200px;
-    margin: 60px auto;
-    padding: 0 20px;
+    margin: 20px auto;
+    padding: 0 10px;
 }
 
+/* تخطيط الصفحة: الهواتف فوق بعضها، الشاشات الكبيرة جنب بعض */
 .checkout-layout {
-    display: grid;
-    grid-template-columns: 1.6fr 1fr;
-    gap: 30px;
-    align-items: start;
+    display: flex;
+    flex-direction: column-reverse; /* في الموبايل، نموذج البيانات يظهر أولاً وملخص الطلب تحته */
+    gap: 20px;
+}
+
+@media (min-width: 900px) {
+    .checkout-layout {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        flex-direction: row;
+    }
 }
 
 .checkout-box,
 .order-summary {
     background: #fff;
     border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 5px 25px rgba(0,0,0,.05);
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,.05);
 }
 
 .checkout-box h2,
 .order-summary h2 {
-    font-size: 22px;
-    margin-bottom: 25px;
-    padding-bottom: 18px;
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
     border-bottom: 1px solid #eee;
 }
 
+/* شبكة النماذج - اجبارها على النزول تحت بعض في الموبايل */
 .form-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    grid-template-columns: 1fr; /* عمود واحد في الموبايل لمنع أي تداخل نهائياً */
+    gap: 15px;
+}
+
+@media (min-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr 1fr; /* عمودين في الشاشات الواسعة */
+    }
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 6px;
 }
 
 .form-group.full {
@@ -964,13 +957,12 @@ textarea {
 .form-group select,
 .form-group textarea {
     width: 100%;
-    padding: 14px;
+    padding: 12px;
     border: 1px solid #ddd;
     border-radius: 6px;
     outline: none;
     font-size: 14px;
     background: #fff;
-    transition: .3s;
 }
 
 .form-group input:focus,
@@ -979,135 +971,18 @@ textarea {
     border-color: #111;
 }
 
-.form-group textarea {
-    min-height: 110px;
-    resize: vertical;
-}
-
-.payment-title {
-    margin-top: 35px;
-    margin-bottom: 20px;
-    font-size: 20px;
-}
-
-.payment-options {
-    display: grid;
-    gap: 12px;
-}
-
-.payment-option {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 17px;
-    transition: .3s;
-}
-
-.payment-option:hover {
-    border-color: #111;
-}
-
-.payment-option label {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.payment-option input[type="radio"] {
-    accent-color: #111;
-}
-
-.payment-option i {
-    font-size: 20px;
-    width: 25px;
-}
-
-.errors {
-    background: #fff1f1;
-    border: 1px solid #f0caca;
-    color: #a00000;
-    padding: 18px;
-    border-radius: 8px;
-    margin-bottom: 25px;
-}
-
-.errors ul {
-    padding-right: 20px;
-}
-
-.errors li {
-    margin-bottom: 6px;
-}
-
-.success-box {
-    max-width: 700px;
-    margin: 80px auto;
-    background: #fff;
-    text-align: center;
-    padding: 60px 30px;
-    border-radius: 12px;
-    box-shadow: 0 5px 25px rgba(0,0,0,.05);
-}
-
-.success-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: #f1f1f1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 25px;
-}
-
-.success-icon i {
-    font-size: 35px;
-}
-
-.success-box h2 {
-    margin-bottom: 12px;
-}
-
-.success-box p {
-    color: #777;
-    line-height: 1.8;
-    margin-bottom: 25px;
-}
-
-.order-number {
-    display: inline-block;
-    background: #f5f5f5;
-    padding: 12px 20px;
-    border-radius: 6px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.success-btn {
-    display: inline-block;
-    background: #111;
-    color: #fff;
-    padding: 14px 25px;
-    border-radius: 6px;
-}
-
-.order-summary {
-    position: sticky;
-    top: 110px;
-}
-
+/* ملخص الطلب */
 .order-product {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 15px 0;
+    gap: 12px;
+    padding: 10px 0;
     border-bottom: 1px solid #eee;
 }
 
 .order-product-image {
-    width: 65px;
-    height: 75px;
+    width: 50px;
+    height: 60px;
     background: #f4f4f4;
     border-radius: 6px;
     overflow: hidden;
@@ -1125,36 +1000,32 @@ textarea {
 }
 
 .order-product-info h3 {
-    font-size: 14px;
-    margin-bottom: 6px;
+    font-size: 13px;
+    margin-bottom: 4px;
 }
 
 .order-product-info p {
     color: #888;
-    font-size: 12px;
-}
-
-.order-product-price {
-    font-size: 13px;
-    font-weight: bold;
+    font-size: 11px;
 }
 
 .summary-row {
     display: flex;
     justify-content: space-between;
-    padding: 13px 0;
+    padding: 8px 0;
     color: #666;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .summary-total {
     border-top: 1px solid #eee;
-    margin-top: 10px;
-    padding-top: 20px;
+    margin-top: 8px;
+    padding-top: 12px;
     display: flex;
     justify-content: space-between;
-    font-size: 19px;
+    font-size: 16px;
     font-weight: bold;
+    color: #111;
 }
 
 .place-order {
@@ -1162,31 +1033,13 @@ textarea {
     border: none;
     background: #111;
     color: #fff;
-    padding: 16px;
+    padding: 14px;
     border-radius: 6px;
-    margin-top: 25px;
+    margin-top: 15px;
     cursor: pointer;
-    font-size: 14px;
-}
-
-.place-order:hover {
-    background: #333;
-}
-
-.footer {
-    background: #0b0b0b;
-    color: #fff;
-    padding: 35px 20px;
-    text-align: center;
-    margin-top: 80px;
-}
-
-.footer p {
-    color: #777;
-    font-size: 12px;
+    font-size: 15px;
 }
 </style>
-
 </head>
 
 <body>
